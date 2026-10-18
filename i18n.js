@@ -35,7 +35,7 @@ export const translations = {
     'cat.mains': 'Pratos Principais',
     'cat.desserts': 'Sobremesas',
     'menu.tastingLead': 'Para a experiência completa, experimente o nosso Menu de Degustação do Chef',
-    'menu.tastingCta': 'Menu Degustação — 95€ / pessoa',
+    'menu.tastingCta': 'Menu Degustação — 40€ / pessoa',
     'menu.wineLink': 'Ver a nossa Carta de Vinhos',
     'menu.pdfLink': 'Descarregar Menu (PDF)',
 
@@ -255,7 +255,7 @@ export const translations = {
     'cat.mains': 'Main Courses',
     'cat.desserts': 'Desserts',
     'menu.tastingLead': 'For the complete experience, try our Chef\'s Tasting Menu',
-    'menu.tastingCta': 'Tasting Menu — €95 per person',
+    'menu.tastingCta': 'Tasting Menu — €40 per person',
     'menu.wineLink': 'View our Wine List',
     'menu.pdfLink': 'Download Menu (PDF)',
 

@@ -1,0 +1,261 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-body antialiased;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Secções com âncora não ficam escondidas atrás da navbar fixa */
+  section[id] {
+    scroll-margin-top: 4.5rem;
+  }
+
+  /* Melhor experiência de toque em mobile */
+  a, button {
+    touch-action: manipulation;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+
+  ::selection {
+    @apply bg-emerald-300/30 text-white;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-black;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-white/10 rounded-full hover:bg-white/20 transition-colors;
+  }
+}
+
+@layer components {
+  /* Animations */
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes pulse-slow {
+    0%, 100% {
+      opacity: 0.3;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.6;
+      transform: scale(1.1);
+    }
+  }
+
+  @keyframes spin-slow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes bounce-slow {
+    0%, 100% {
+      transform: translateX(-50%) translateY(0);
+    }
+    50% {
+      transform: translateX(-50%) translateY(10px);
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out forwards;
+    opacity: 0;
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.4s ease-out forwards;
+  }
+
+  .animate-fade-in-up.delay-100 {
+    animation-delay: 100ms;
+  }
+
+  .animate-fade-in-up.delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .animate-fade-in-up.delay-300 {
+    animation-delay: 300ms;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse-slow 4s ease-in-out infinite;
+  }
+
+  .animate-pulse-slow.delay-1000 {
+    animation-delay: 1s;
+  }
+
+  .animate-spin-slow {
+    animation: spin-slow 20s linear infinite;
+  }
+
+  .animate-bounce-slow {
+    animation: bounce-slow 2s ease-in-out infinite;
+  }
+
+  /* Focus visible styles */
+  .focus-visible-ring {
+    @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300 focus-visible:ring-offset-2 focus-visible:ring-offset-black;
+  }
+
+  /* Glass morphism */
+  .glass {
+    @apply bg-white/5 backdrop-blur-sm border border-white/10;
+  }
+
+  .glass-hover {
+    @apply hover:bg-white/10 hover:border-emerald-300/30 transition-all duration-500;
+  }
+
+  /* Text gradient */
+  .text-gradient-emerald {
+    @apply bg-gradient-to-r from-emerald-300 via-emerald-500 to-emerald-300 bg-clip-text text-transparent;
+  }
+
+  /* Button variants */
+  .btn-primary {
+    @apply px-8 py-3 bg-emerald-300 text-black text-sm tracking-widest uppercase rounded-full font-medium hover:bg-emerald-400 transition-all duration-300 focus-visible-ring;
+  }
+
+  .btn-secondary {
+    @apply px-8 py-3 border border-white/20 text-white/80 text-sm tracking-widest uppercase rounded-full hover:border-white/40 hover:text-white transition-all duration-300 focus-visible-ring;
+  }
+
+  .btn-ghost {
+    @apply px-6 py-2 text-white/70 text-sm tracking-wider hover:text-emerald-300 transition-colors duration-300 focus-visible-ring;
+  }
+
+  /* Form styles */
+  .form-input {
+    @apply w-full px-4 py-3 bg-black/50 border border-white/10 rounded-lg text-white placeholder-white/30 focus:outline-none focus:ring-2 focus:ring-emerald-300/20 focus:border-emerald-300/30 transition-all duration-300;
+  }
+
+  .form-input-error {
+    @apply border-red-500/50 focus:ring-red-500/20;
+  }
+
+  .form-label {
+    @apply block text-xs tracking-wider text-white/50 mb-2;
+  }
+
+  .form-error {
+    @apply mt-1.5 text-sm text-red-400;
+  }
+
+  /* Card hover */
+  .card-hover {
+    @apply transition-all duration-500 hover:border-emerald-300/30 hover:bg-white/10;
+  }
+}
+
+@layer utilities {
+  /* Text balance for headlines */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Custom grid patterns */
+  .bg-grid-emerald {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3e%3cpath d='M 60 0 L 0 0 0 60' fill='none' stroke='%2334d399' stroke-width='0.5' stroke-opacity='0.1'/%3e%3c/svg%3e");
+  }
+
+  /* Line clamp utilities */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Animation delays */
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
+  .delay-700 { animation-delay: 700ms; }
+  .delay-1000 { animation-delay: 1000ms; }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* Impressão (Guardar como PDF) */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  html,
+  body {
+    background: #ffffff !important;
+  }
+  * {
+    color: #111111;
+    text-shadow: none !important;
+    box-shadow: none !important;
+  }
+  a {
+    text-decoration: none;
+  }
+}

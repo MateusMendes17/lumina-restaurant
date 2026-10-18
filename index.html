@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="description" content="Lumina - Restaurante de gastronomia contemporânea em Lisboa. Reserve a sua mesa." />
+    <meta name="theme-color" content="#000000" />
+    
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="Lumina" />
+    
+    <!-- Analytics privacy-friendly: definir endpoint para ativar (ex: https://plausible.io/api/event) -->
+    <!-- <script>window.__ANALYTICS_ENDPOINT__ = 'https://SEU-ENDPOINT';</script> -->
+    
+    <!-- Preload da imagem principal (LCP) -->
+    <link rel="preload" as="image" href="/hero-bg.jpg" fetchpriority="high" />
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Lumina - Gastronomia Contemporânea" />
+    <meta property="og:description" content="Restaurante em Lisboa. Experiência gastronómica única com ingredientes sazonais." />
+    <meta property="og:image" content="/og-image.jpg" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Lumina - Gastronomia Contemporânea" />
+    <meta name="twitter:description" content="Restaurante em Lisboa." />
+    
+    <!-- Fonts: Clarify City (custom) + Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Dados estruturados (SEO) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "Lumina Restaurant",
+      "description": "Gastronomia contemporânea com alma portuguesa no coração de Lisboa.",
+      "image": "/hero-bg.jpg",
+      "servesCuisine": ["Portuguesa", "Contemporânea"],
+      "priceRange": "€€€",
+      "telephone": "+351210634213",
+      "email": "reservas@lumina.pt",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Rua da Luz",
+        "postalCode": "1200-247",
+        "addressLocality": "Lisboa",
+        "addressCountry": "PT"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "6"
+      },
+      "openingHoursSpecification": [
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday"], "opens": "12:00", "closes": "15:00" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday"], "opens": "19:00", "closes": "23:00" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Friday","Saturday"], "opens": "12:00", "closes": "15:00" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Friday","Saturday"], "opens": "19:00", "closes": "23:30" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "12:00", "closes": "16:00" }
+      ]
+    }
+    </script>
+    
+    <title>Lumina | Gastronomia Contemporânea em Lisboa</title>
+  </head>
+  <body class="bg-black text-white">
+    <div id="root"></div>
+    <script type="module" src="/main.jsx"></script>
+  </body>
+</html>
